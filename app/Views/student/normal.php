@@ -15,7 +15,6 @@
             <table id="sample" class="table table-bordered w-100">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>NAME</th>
                         <th>SUBJECT</th>
                         <th>MARK</th>
@@ -26,7 +25,6 @@
                     <?php foreach ($students as $student): ?>
                         <tr id="<?= $student->id ?>">
                             <input type="hidden" name="<?= csrf_token()?>" value="<?= csrf_hash() ?>" class="ci-csrf-token editInput">
-                            <td><?= $student->id ?></td>
                             <td>
                                 <span class="editSpan name"><?= $student->name ?></span>
                                 <input class="form-control editInput name" type="text" name="name"
