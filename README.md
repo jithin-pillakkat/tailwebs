@@ -7,8 +7,8 @@
 
 # Database management
 
-- Create a new database called 'tailwebs' in you database.
-- Open .env file from the root and update the DB credentials.
+- Create a new database called 'tailwebs' in your database.
+- Open the .env file from the root and update the DB credentials.
 - Open the terminal and enter the cmd "php spark migrate" to create required tables.
 - Open the terminal and enter the cmd "php spark db:seed TeacherSeeder" to store teacher details into the table.
 - Open the terminal and enter the cmd "php spark db:seed StudentSeeder" to store student details into the table.
