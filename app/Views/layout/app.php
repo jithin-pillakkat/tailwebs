@@ -16,15 +16,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <style>
-    .pagination {
-        --bs-pagination-active-bg: black;
-        --bs-pagination-active-border-color: black;
-    }
-
-    div.dt-processing>div:last-child>div {
-        background: black !important;
-    }
-
     .form-control:focus {
         border-color: black;
         outline: 0;

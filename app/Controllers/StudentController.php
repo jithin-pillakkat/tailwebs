@@ -155,8 +155,28 @@ class StudentController extends BaseController
 
     public function normalTable()
     {
+        $search = $this->request->getGet('search');
         $student = new Student();
-        $data['students'] = $student->asObject()->orderBy('id', 'DESC')->findAll();
+
+        if(isset($search)){
+
+            $data['students'] = $student->asObject()        
+            ->like('name', $search)
+            ->orLike('subject', $search)
+            ->orLike('mark', $search)
+            ->orderBy('id', 'DESC')
+            ->paginate(5);
+
+        }else{
+
+            $data['students'] = $student->asObject()       
+            ->orderBy('id', 'DESC')
+            ->paginate(5);  
+            
+        }
+        
+                          
+        $data['pager'] = $student->pager;
         return view('student/normal', $data);
     }
 
@@ -206,10 +226,10 @@ class StudentController extends BaseController
 
 
             if ($this->request->getPost('action') == 'delete') {
-               
+
                 $student = new Student();
                 $student->where('id', $this->request->getPost('id'))->delete();
-    
+
                 return response()->setJSON([
                     'status' => true,
                     'newToken' => csrf_hash(),

@@ -1,6 +1,17 @@
 <?php $this->extend('layout/app') ?>
 
 <?php $this->section('content') ?>
+<style>
+    .pagination {
+        --bs-pagination-active-bg: black;
+        --bs-pagination-active-border-color: black;
+        --bs-pagination-color: black;
+    }
+
+    div.dt-processing>div:last-child>div {
+        background: black !important;
+    }
+</style>
 <div class="card mt-3">
     <div class="card-header ">
         <div class="card-title fw-3">
@@ -14,8 +25,8 @@
         <div class="table-responsive w-100">
             <table id="sample" class="table table-bordered w-100">
                 <thead>
-                    <tr>
-                        <th>ID</th>
+                    <tr>     
+                        <th>ID</th>                        
                         <th>NAME</th>
                         <th>SUBJECT</th>
                         <th>MARK</th>
@@ -46,7 +57,7 @@
         ajax: {
             url: "<?= route_to('student.list') ?>",
             type: "GET",
-        },
+        },        
     });
 
     $('#sample').on('draw.dt', function () {
